@@ -1,0 +1,19 @@
+FEATURES:
+	- Screens:
+		- Start Screen
+		- Pause and Quit Screen
+		- Win Screen
+		- Draw Screen
+	- Projectiles
+	- Score
+	- Mood Damage
+	- Audio:
+		- Music
+		- SFX
+
+POLISH:
+DONE	- Launch Delays, Preps, and Post-landing
+	- Make Movements more Hop-like
+
+BUGS:
+	- Proximity of Falling mechanic

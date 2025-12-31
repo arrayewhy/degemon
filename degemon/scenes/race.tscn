@@ -1,0 +1,1208 @@
+[gd_scene load_steps=14 format=3 uid="uid://brvsrlq5wyk7j"]
+
+[ext_resource type="Script" uid="uid://cpjlo81jud0mo" path="res://scripts/initialiser.gd" id="1_l0hv7"]
+[ext_resource type="Texture2D" uid="uid://busi0mq2qklss" path="res://sprites/Wall.png" id="2_cd6ng"]
+[ext_resource type="Script" uid="uid://eltewjrq8dkm" path="res://scripts/camera.gd" id="2_r6hvi"]
+[ext_resource type="Script" uid="uid://bl1fatr6yn0eu" path="res://scripts/environment.gd" id="3_cd6ng"]
+[ext_resource type="Texture2D" uid="uid://s1btu3fwm1ft" path="res://sprites/main_spritesheet.png" id="4_h861m"]
+[ext_resource type="Shader" uid="uid://cx4ifoci5v0f" path="res://shaders/pixel-offset.gdshader" id="5_cd6ng"]
+[ext_resource type="Texture2D" uid="uid://cjcfqoalfdm7n" path="res://sprites/Frame.png" id="5_ut87i"]
+[ext_resource type="Texture2D" uid="uid://dgatrvsa82lbt" path="res://sprites/Pixel.png" id="6_el7e3"]
+[ext_resource type="Script" uid="uid://bd3c3uubudbcn" path="res://scripts/split.gd" id="7_h861m"]
+[ext_resource type="Texture2D" uid="uid://cdh6bh0p20tq0" path="res://sprites/win.png" id="8_jy6vs"]
+[ext_resource type="Script" uid="uid://dgxkl5ch76vwe" path="res://scripts/gem.gd" id="9_hs220"]
+
+[sub_resource type="GDScript" id="GDScript_dxsw2"]
+resource_name = "Battle_UI"
+script/source = "extends CanvasLayer
+
+
+func _ready() -> void:
+	self.show();
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cd6ng"]
+shader = ExtResource("5_cd6ng")
+shader_parameter/block_size = 100.0
+shader_parameter/offset_x = -0.77
+
+[node name="Race" type="Node2D"]
+
+[node name="Initialiser" type="Node" parent="."]
+script = ExtResource("1_l0hv7")
+
+[node name="Spawn_Points" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Spawn_Points"]
+position = Vector2(-48, -10)
+
+[node name="Node2D2" type="Node2D" parent="Spawn_Points"]
+position = Vector2(48, -10)
+
+[node name="Walls" type="Node2D" parent="."]
+visible = false
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls"]
+texture_repeat = 2
+position = Vector2(-136, 0)
+texture = ExtResource("2_cd6ng")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 144)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Walls"]
+texture_repeat = 2
+position = Vector2(0, 72)
+rotation = -1.5707964
+texture = ExtResource("2_cd6ng")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 288)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Walls"]
+texture_repeat = 2
+position = Vector2(136, 0)
+rotation = -3.1415925
+texture = ExtResource("2_cd6ng")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 144)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Walls"]
+texture_repeat = 2
+position = Vector2(0, -72)
+rotation = 1.5707964
+texture = ExtResource("2_cd6ng")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 288)
+
+[node name="Ground" type="Sprite2D" parent="Walls"]
+modulate = Color(0.8784314, 0.78431374, 0.5647059, 1)
+z_index = -10
+scale = Vector2(280, 150)
+texture = ExtResource("6_el7e3")
+
+[node name="Battle_UI" type="CanvasLayer" parent="."]
+layer = 2
+script = SubResource("GDScript_dxsw2")
+
+[node name="Control" type="Control" parent="Battle_UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bottom_Panel" type="Control" parent="Battle_UI/Control"]
+texture_filter = 1
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Battle_UI/Control/Bottom_Panel"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("5_ut87i")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="P_1" type="Control" parent="Battle_UI/Control/Bottom_Panel"]
+layout_mode = 1
+anchor_right = 0.4
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HP" type="Control" parent="Battle_UI/Control/Bottom_Panel/P_1"]
+visible = false
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Battle_UI/Control/Bottom_Panel/P_1/HP"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ut87i")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Hollow" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_1/HP"]
+visible = false
+self_modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.43
+anchor_right = 0.915
+anchor_bottom = 0.64
+offset_top = -1.335144e-05
+offset_bottom = -1.1444092e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="Bar" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_1/HP"]
+visible = false
+self_modulate = Color(0.89411765, 0.42352942, 0.5803922, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.43
+anchor_right = 0.915
+anchor_bottom = 0.57
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="Bar2" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_1/HP/Bar"]
+self_modulate = Color(1, 0.76862746, 0.76862746, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="Mood" type="Control" parent="Battle_UI/Control/Bottom_Panel/P_1"]
+layout_mode = 1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Battle_UI/Control/Bottom_Panel/P_1/Mood"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ut87i")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Hollow" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_1/Mood"]
+visible = false
+self_modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.43
+anchor_right = 0.915
+anchor_bottom = 0.64
+offset_top = 3.8146973e-05
+offset_bottom = 3.8146973e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="Bar" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_1/Mood"]
+visible = false
+self_modulate = Color(0.24313726, 0.7137255, 0.9411765, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.43
+anchor_right = 0.915
+anchor_bottom = 0.57
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="Bar2" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_1/Mood/Bar"]
+self_modulate = Color(0.70980394, 0.8509804, 0.9372549, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="P_2" type="Control" parent="Battle_UI/Control/Bottom_Panel"]
+visible = false
+layout_mode = 1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HP" type="Control" parent="Battle_UI/Control/Bottom_Panel/P_2"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Battle_UI/Control/Bottom_Panel/P_2/HP"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ut87i")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Hollow" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_2/HP"]
+visible = false
+self_modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.43
+anchor_right = 0.915
+anchor_bottom = 0.64
+offset_left = 4.5776367e-05
+offset_top = 3.8146973e-05
+offset_right = 6.1035156e-05
+offset_bottom = 3.8146973e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="Bar" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_2/HP"]
+visible = false
+self_modulate = Color(0.89411765, 0.42352942, 0.5803922, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.43
+anchor_right = 0.915
+anchor_bottom = 0.57
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="Bar2" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_2/HP/Bar"]
+self_modulate = Color(1, 0.76862746, 0.76862746, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="Mood" type="Control" parent="Battle_UI/Control/Bottom_Panel/P_2"]
+layout_mode = 1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Battle_UI/Control/Bottom_Panel/P_2/Mood"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ut87i")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Hollow" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_2/Mood"]
+visible = false
+self_modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.43
+anchor_right = 0.915
+anchor_bottom = 0.64
+offset_left = 4.5776367e-05
+offset_top = 3.8146973e-05
+offset_right = 6.1035156e-05
+offset_bottom = 3.8146973e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="Bar" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_2/Mood"]
+visible = false
+self_modulate = Color(0.24313726, 0.7137255, 0.9411765, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.43
+anchor_right = 0.915
+anchor_bottom = 0.57
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="Bar2" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_2/Mood/Bar"]
+self_modulate = Color(0.70980394, 0.8509804, 0.9372549, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_el7e3")
+
+[node name="P1_HP" type="NinePatchRect" parent="Battle_UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -60.0
+offset_right = 104.0
+offset_bottom = -44.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture = ExtResource("5_ut87i")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Hollow" type="TextureRect" parent="Battle_UI/P1_HP"]
+self_modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 89.0
+offset_bottom = 10.0
+texture = ExtResource("6_el7e3")
+
+[node name="Bar" type="TextureRect" parent="Battle_UI/P1_HP"]
+self_modulate = Color(0.89411765, 0.42352942, 0.5803922, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 89.0
+offset_bottom = 9.0
+texture = ExtResource("6_el7e3")
+
+[node name="Bright" type="TextureRect" parent="Battle_UI/P1_HP/Bar"]
+self_modulate = Color(1, 0.76862746, 0.76862746, 1)
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 1.0
+texture = ExtResource("6_el7e3")
+
+[node name="P1_Mood" type="NinePatchRect" parent="Battle_UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -40.0
+offset_right = 104.0
+offset_bottom = -24.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture = ExtResource("5_ut87i")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Hollow" type="TextureRect" parent="Battle_UI/P1_Mood"]
+self_modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 89.0
+offset_bottom = 10.0
+texture = ExtResource("6_el7e3")
+
+[node name="Bar" type="TextureRect" parent="Battle_UI/P1_Mood"]
+self_modulate = Color(0.24313726, 0.7137255, 0.9411765, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 89.0
+offset_bottom = 9.0
+texture = ExtResource("6_el7e3")
+
+[node name="Bright" type="TextureRect" parent="Battle_UI/P1_Mood/Bar"]
+self_modulate = Color(0.70980394, 0.8509804, 0.9372549, 1)
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 1.0
+texture = ExtResource("6_el7e3")
+
+[node name="Clock" type="NinePatchRect" parent="Battle_UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -72.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("5_ut87i")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="P2_HP" type="NinePatchRect" parent="Battle_UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -60.0
+offset_right = -104.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture = ExtResource("5_ut87i")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Hollow" type="TextureRect" parent="Battle_UI/P2_HP"]
+self_modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 89.0
+offset_bottom = 10.0
+texture = ExtResource("6_el7e3")
+
+[node name="Bar" type="TextureRect" parent="Battle_UI/P2_HP"]
+self_modulate = Color(0.89411765, 0.42352942, 0.5803922, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 89.0
+offset_bottom = 9.0
+texture = ExtResource("6_el7e3")
+
+[node name="Bright" type="TextureRect" parent="Battle_UI/P2_HP/Bar"]
+self_modulate = Color(1, 0.76862746, 0.76862746, 1)
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 1.0
+texture = ExtResource("6_el7e3")
+
+[node name="P2_Mood" type="NinePatchRect" parent="Battle_UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -40.0
+offset_right = -104.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture = ExtResource("5_ut87i")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Hollow" type="TextureRect" parent="Battle_UI/P2_Mood"]
+self_modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 89.0
+offset_bottom = 10.0
+texture = ExtResource("6_el7e3")
+
+[node name="Bar" type="TextureRect" parent="Battle_UI/P2_Mood"]
+self_modulate = Color(0.24313726, 0.7137255, 0.9411765, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 89.0
+offset_bottom = 9.0
+texture = ExtResource("6_el7e3")
+
+[node name="Bright" type="TextureRect" parent="Battle_UI/P2_Mood/Bar"]
+self_modulate = Color(0.70980394, 0.8509804, 0.9372549, 1)
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 1.0
+texture = ExtResource("6_el7e3")
+
+[node name="Win_Screen" type="CanvasLayer" parent="."]
+layer = 0
+visible = false
+
+[node name="WIN" type="TextureRect" parent="Win_Screen"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_cd6ng")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_jy6vs")
+
+[node name="Split_Screen" type="CanvasLayer" parent="."]
+script = ExtResource("7_h861m")
+
+[node name="World_SVPC" type="SubViewportContainer" parent="Split_Screen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Split_Screen/World_SVPC"]
+handle_input_locally = false
+size = Vector2i(480, 270)
+render_target_update_mode = 4
+
+[node name="Action_Cam" type="Camera2D" parent="Split_Screen/World_SVPC/SubViewport"]
+zoom = Vector2(2, 2)
+script = ExtResource("2_r6hvi")
+
+[node name="Environment" type="Node2D" parent="Split_Screen/World_SVPC/SubViewport"]
+z_index = -10
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("3_cd6ng")
+
+[node name="Cell_1" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, 0)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_58" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-32, 0)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_2" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_3" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, 0)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_62" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(32, 0)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_70" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, 16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_74" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-32, 16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_76" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, 16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_78" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, 16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_82" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(32, 16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_4" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_64" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-32, -16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_5" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_6" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_66" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(32, -16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_7" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -32)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_8" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -32)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_9" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -32)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_10" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -48)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_11" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -48)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_12" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -48)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_13" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -64)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_14" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -64)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_15" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -64)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_16" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -80)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_17" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -80)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_18" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -80)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_19" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -96)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_20" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -96)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_21" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -96)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_22" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -128)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_23" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -128)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_24" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -128)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_25" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -144)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_26" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -144)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_27" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -144)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_28" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -176)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_29" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -176)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_30" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -176)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_31" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -192)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_32" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -192)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_33" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -192)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_34" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -208)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_35" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -208)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_36" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -208)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_37" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-32, -240)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_38" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -240)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_39" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -240)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_40" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-32, -256)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_41" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -256)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_42" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -256)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_43" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -288)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_44" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -288)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_45" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -288)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_46" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -304)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_47" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -304)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_48" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -304)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_49" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -320)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_50" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -320)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_51" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -320)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_92" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -448)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_93" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -448)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_94" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -448)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_95" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -432)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_96" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -432)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_97" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -432)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_98" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -416)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_99" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -416)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_100" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -416)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_101" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -400)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_102" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -400)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_103" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -400)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_52" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -352)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_53" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -352)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_54" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(32, -352)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_55" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -368)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_56" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -368)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_57" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(32, -368)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_59" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -464)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_60" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -464)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_61" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -464)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_63" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-32, -480)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_65" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -480)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_67" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(32, -480)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_68" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-32, -496)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_69" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -496)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_71" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -496)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_72" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(32, -496)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_73" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-32, -512)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_75" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -512)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_77" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(32, -512)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_79" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(-16, -528)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_80" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(0, -528)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_81" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
+position = Vector2(16, -528)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Static_Environment" type="Node2D" parent="Split_Screen/World_SVPC/SubViewport"]
+texture_filter = 1
+
+[node name="Gem" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Static_Environment"]
+z_index = 1
+position = Vector2(0, -504)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(64, 32, 16, 16)
+script = ExtResource("9_hs220")
+
+[node name="Cell_70" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Static_Environment"]
+position = Vector2(0, -496)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="P1_SVPC" type="SubViewportContainer" parent="Split_Screen"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 256.0
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Split_Screen/P1_SVPC"]
+handle_input_locally = false
+size = Vector2i(256, 512)
+size_2d_override = Vector2i(512, 1024)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="P2_SVPC" type="SubViewportContainer" parent="Split_Screen"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Split_Screen/P2_SVPC"]
+handle_input_locally = false
+size = Vector2i(256, 512)
+size_2d_override = Vector2i(512, 1024)
+size_2d_override_stretch = true
+render_target_update_mode = 4

@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjv7pcn61yx00"]
+
+[ext_resource type="Texture2D" uid="uid://23opj0rr20cu" path="res://sprites/monsters/torque.png" id="1_ry655"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ht1c8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms7js"]
+atlas = ExtResource("1_ry655")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2dh8"]
+atlas = ExtResource("1_ry655")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taqi6"]
+atlas = ExtResource("1_ry655")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0kkc"]
+atlas = ExtResource("1_ry655")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgjmp"]
+atlas = ExtResource("1_ry655")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tpns"]
+atlas = ExtResource("1_ry655")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lff2"]
+atlas = ExtResource("1_ry655")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8rrg"]
+atlas = ExtResource("1_ry655")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2jcq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms7js")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2dh8")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taqi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0kkc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgjmp")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tpns")
+}],
+"loop": true,
+"name": &"Land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lff2")
+}],
+"loop": true,
+"name": &"Prep",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8rrg")
+}],
+"loop": true,
+"name": &"Win",
+"speed": 2.0
+}]
+
+[node name="Sukamon_Anim" type="AnimatedSprite2D"]
+material = SubResource("ShaderMaterial_ht1c8")
+sprite_frames = SubResource("SpriteFrames_g2jcq")
+animation = &"Win"
+autoplay = "Idle"

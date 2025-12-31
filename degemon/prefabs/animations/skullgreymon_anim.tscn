@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://mfnre6u0m1ri"]
+
+[ext_resource type="Texture2D" uid="uid://ey7vlocqj5y4" path="res://sprites/monsters/skullgreymon.png" id="1_dmfuo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ht1c8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2noj2"]
+atlas = ExtResource("1_dmfuo")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33aoh"]
+atlas = ExtResource("1_dmfuo")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oefyn"]
+atlas = ExtResource("1_dmfuo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1odo4"]
+atlas = ExtResource("1_dmfuo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d4om"]
+atlas = ExtResource("1_dmfuo")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbdfk"]
+atlas = ExtResource("1_dmfuo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nkwx"]
+atlas = ExtResource("1_dmfuo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ivuq"]
+atlas = ExtResource("1_dmfuo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3b5p"]
+atlas = ExtResource("1_dmfuo")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2jcq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2noj2")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33aoh")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oefyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1odo4")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d4om")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbdfk")
+}],
+"loop": true,
+"name": &"Land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nkwx")
+}],
+"loop": true,
+"name": &"Prep",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ivuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3b5p")
+}],
+"loop": true,
+"name": &"Win",
+"speed": 2.0
+}]
+
+[node name="Digitamamon_Anim" type="AnimatedSprite2D"]
+material = SubResource("ShaderMaterial_ht1c8")
+sprite_frames = SubResource("SpriteFrames_g2jcq")
+animation = &"Win"
+autoplay = "Idle"
+frame_progress = 0.5497654

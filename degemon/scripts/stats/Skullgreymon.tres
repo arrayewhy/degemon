@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Mon_Stats" load_steps=5 format=3 uid="uid://055iqt1v2vnl"]
+
+[ext_resource type="PackedScene" uid="uid://mfnre6u0m1ri" path="res://prefabs/animations/skullgreymon_anim.tscn" id="1_dsg3b"]
+[ext_resource type="Script" uid="uid://dpkmkfwq2ebqq" path="res://scripts/mon_stats.gd" id="2_dsg3b"]
+[ext_resource type="AudioStream" uid="uid://djbxn4y3ao1gi" path="res://sounds/digimon_snarl.wav" id="2_femew"]
+[ext_resource type="AudioStream" uid="uid://bh0v1f603dxed" path="res://sounds/mons/digimon_launch.wav" id="2_m7sr5"]
+
+[resource]
+script = ExtResource("2_dsg3b")
+Anim = ExtResource("1_dsg3b")
+PREP_SFX = ExtResource("2_femew")
+LAND_SFX = ExtResource("2_m7sr5")
+NAME = 3
+HP = 30
+ATK_1 = 6
+ATK_2 = 12
+RANGE_1 = 15.0
+KNOCKBACK_1 = 50.0
+KNOCKBACK_2 = 80.0
+ACT_SPD = 2
+MOVE_DIST = 48
+MOVE_DELAY = 0.05
+MOVE_SPEED = 640.0
+metadata/_custom_type_script = "uid://dpkmkfwq2ebqq"

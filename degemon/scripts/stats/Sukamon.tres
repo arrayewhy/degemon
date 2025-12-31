@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Mon_Stats" load_steps=5 format=3 uid="uid://7vev23os5g3y"]
+
+[ext_resource type="PackedScene" uid="uid://o44hk3pnv6as" path="res://prefabs/animations/sukamon_anim.tscn" id="1_3b3gw"]
+[ext_resource type="Script" uid="uid://dpkmkfwq2ebqq" path="res://scripts/mon_stats.gd" id="2_3b3gw"]
+[ext_resource type="AudioStream" uid="uid://dprq0yt8hb655" path="res://sounds/mons/digimon_hop.wav" id="2_g3ef4"]
+[ext_resource type="AudioStream" uid="uid://bd1fqf56hw50r" path="res://sounds/mons/digimon_poop.wav" id="3_um11x"]
+
+[resource]
+script = ExtResource("2_3b3gw")
+Anim = ExtResource("1_3b3gw")
+PREP_SFX = ExtResource("3_um11x")
+JUMP_SFX = ExtResource("2_g3ef4")
+NAME = 1
+HP = 30
+ATK_1 = 1
+ATK_2 = 8
+KNOCKBACK_1 = 10.0
+KNOCKBACK_2 = 50.0
+ACT_SPD = 8
+MOVE_DIST = 10
+MOVE_DELAY = 0.05
+MOVE_SPEED = 6.0
+JUMP_HEIGHT = 30.0
+metadata/_custom_type_script = "uid://dpkmkfwq2ebqq"

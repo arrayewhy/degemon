@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bix26ngyl1tr"]
+
+[ext_resource type="Texture2D" uid="uid://fm2ytp23441v" path="res://sprites/box.png" id="1_6w8bi"]
+[ext_resource type="Script" uid="uid://dg2xmbqyrkjk8" path="res://scripts/spinning_frame.gd" id="1_ly5db"]
+
+[node name="Box" type="Node3D"]
+script = ExtResource("1_ly5db")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.063, 0, 0, 0, -2.7538174e-09, -0.063, 0, 0.063, -2.7538174e-09, 0, 0, 0)
+modulate = Color(0.6117647, 0.9490196, 0.10980392, 1)
+pixel_size = 1.0
+texture_filter = 0
+texture = ExtResource("1_6w8bi")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 1, 1)
+projection = 1
+size = 2.0

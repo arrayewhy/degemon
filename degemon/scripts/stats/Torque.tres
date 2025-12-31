@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Mon_Stats" load_steps=4 format=3 uid="uid://c83nk4g4nmmqd"]
+
+[ext_resource type="PackedScene" uid="uid://bjv7pcn61yx00" path="res://prefabs/animations/torque_anim.tscn" id="1_1nvmv"]
+[ext_resource type="AudioStream" uid="uid://b73008sut7cku" path="res://sounds/mons/digimon_knock.wav" id="3_etluj"]
+[ext_resource type="Script" uid="uid://dpkmkfwq2ebqq" path="res://scripts/mon_stats.gd" id="4_ledei"]
+
+[resource]
+script = ExtResource("4_ledei")
+Anim = ExtResource("1_1nvmv")
+LAND_SFX = ExtResource("3_etluj")
+NAME = 1
+HP = 30
+ATK_1 = 1
+ATK_2 = 8
+KNOCKBACK_1 = 10.0
+KNOCKBACK_2 = 50.0
+ACT_SPD = 8
+MOVE_DIST = 10
+MOVE_DELAY = 0.05
+MOVE_SPEED = 6.0
+JUMP_HEIGHT = 30.0
+metadata/_custom_type_script = "uid://dpkmkfwq2ebqq"

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Mon_Stats" load_steps=4 format=3 uid="uid://d033xpj3dyjni"]
+
+[ext_resource type="PackedScene" uid="uid://cmnnqtu0t78h4" path="res://prefabs/animations/digitamamon_anim.tscn" id="1_p2p2q"]
+[ext_resource type="AudioStream" uid="uid://b73008sut7cku" path="res://sounds/mons/digimon_knock.wav" id="2_h1mc8"]
+[ext_resource type="Script" uid="uid://dpkmkfwq2ebqq" path="res://scripts/mon_stats.gd" id="2_p2p2q"]
+
+[resource]
+script = ExtResource("2_p2p2q")
+Anim = ExtResource("1_p2p2q")
+JUMP_SFX = ExtResource("2_h1mc8")
+NAME = 2
+HP = 30
+ATK_1 = 3
+ATK_2 = 6
+KNOCKBACK_1 = 40.0
+KNOCKBACK_2 = 40.0
+ACT_SPD = 4
+MOVE_DIST = 7
+MOVE_DELAY = 0.05
+MOVE_SPEED = 10.0
+JUMP_HEIGHT = 10.0
+metadata/_custom_type_script = "uid://dpkmkfwq2ebqq"

@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://o44hk3pnv6as"]
+
+[ext_resource type="Texture2D" uid="uid://bjokaoec1hss" path="res://sprites/monsters/sukamon.png" id="1_j5gh6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ht1c8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcova"]
+atlas = ExtResource("1_j5gh6")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6dtw"]
+atlas = ExtResource("1_j5gh6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6lhu"]
+atlas = ExtResource("1_j5gh6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fktu2"]
+atlas = ExtResource("1_j5gh6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvrnp"]
+atlas = ExtResource("1_j5gh6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5gh6"]
+atlas = ExtResource("1_j5gh6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysxkx"]
+atlas = ExtResource("1_j5gh6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1136q"]
+atlas = ExtResource("1_j5gh6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t06hy"]
+atlas = ExtResource("1_j5gh6")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2jcq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcova")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6dtw")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6lhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fktu2")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvrnp")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5gh6")
+}],
+"loop": true,
+"name": &"Land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysxkx")
+}],
+"loop": true,
+"name": &"Prep",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1136q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t06hy")
+}],
+"loop": true,
+"name": &"Win",
+"speed": 2.0
+}]
+
+[node name="Sukamon_Anim" type="AnimatedSprite2D"]
+material = SubResource("ShaderMaterial_ht1c8")
+sprite_frames = SubResource("SpriteFrames_g2jcq")
+animation = &"Win"
+autoplay = "Idle"
+frame_progress = 0.26474407

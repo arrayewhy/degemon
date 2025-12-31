@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn2d4k6caeb6g"]
+
+[ext_resource type="Script" uid="uid://d07ol51jrxsyf" path="res://scripts/player.gd" id="1_r66lb"]
+[ext_resource type="Script" uid="uid://b8nf8sb40t352" path="res://scripts/launcher.gd" id="3_ht1c8"]
+[ext_resource type="PackedScene" uid="uid://bix26ngyl1tr" path="res://prefabs/box.tscn" id="5_g2jcq"]
+[ext_resource type="Script" uid="uid://c1kn8k1hnvwu8" path="res://scripts/health.gd" id="5_ht1c8"]
+
+[node name="Player" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_r66lb")
+
+[node name="Launcher" type="Node2D" parent="."]
+z_index = -1
+z_as_relative = false
+script = ExtResource("3_ht1c8")
+
+[node name="Cursor_Holder" type="Node2D" parent="Launcher"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Launcher/Cursor_Holder"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Launcher/Cursor_Holder/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(64, 64)
+render_target_update_mode = 4
+
+[node name="Box" parent="Launcher/Cursor_Holder/SubViewportContainer/SubViewport" instance=ExtResource("5_g2jcq")]
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("5_ht1c8")
