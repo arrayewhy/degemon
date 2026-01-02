@@ -132,7 +132,8 @@ func _process(delta: float) -> void:
 			#next_prog = _launch_prog + (_curr_launch_speed / _launch_power / 8) * prog_accel * delta;
 			#next_prog = _launch_prog + _stats.MOVE_SPEED * prog_accel * delta;
 			var prog_accel:float = sin(_launch_prog);
-			next_prog = (_launch_prog + delta + (prog_accel / (_stats.MOVE_SPEED * _launch_power)));
+			#next_prog = (_launch_prog + delta + (prog_accel / (_stats.MOVE_SPEED * _launch_power)));
+			next_prog = (_launch_prog + delta + (prog_accel / (_stats.MOVE_SPEED)));
 			
 		elif _hurt:
 			
@@ -335,18 +336,22 @@ func _Player_Move() -> void:
 	# Up & Down
 	if Input.is_action_pressed(_controls.get("Up"), true):
 		var next_pos:Vector2 = self.global_position + Vector2.UP * _stats.MOVE_DIST;
-		_Launch(next_pos, _stats.JUMP_HEIGHT / 3, 0.25, false);
+		#_Launch(next_pos, _stats.JUMP_HEIGHT / 3, 0.25, false);
+		_Launch(next_pos, _stats.JUMP_HEIGHT, 0, false);
 	elif Input.is_action_pressed(_controls.get("Down"), true):
 		var next_pos:Vector2 = self.global_position + Vector2.DOWN * _stats.MOVE_DIST;
-		_Launch(next_pos, _stats.JUMP_HEIGHT / 3, 0.25, false);
+		#_Launch(next_pos, _stats.JUMP_HEIGHT / 3, 0.25, false);
+		_Launch(next_pos, _stats.JUMP_HEIGHT, 0, false);
 	# Left & Right
 	if Input.is_action_pressed(_controls.get("Left"), true):
 		var next_pos:Vector2 = self.global_position + Vector2.LEFT * _stats.MOVE_DIST;
-		_Launch(next_pos, _stats.JUMP_HEIGHT / 3, 0.25, false);
+		#_Launch(next_pos, _stats.JUMP_HEIGHT / 3, 0.25, false);
+		_Launch(next_pos, _stats.JUMP_HEIGHT, 0, false);
 		_Flip_Sprite(-1);
 	elif Input.is_action_pressed(_controls.get("Right"), true):
 		var next_pos:Vector2 = self.global_position + Vector2.RIGHT * _stats.MOVE_DIST;
-		_Launch(next_pos, _stats.JUMP_HEIGHT / 3, 0.25, false);
+		#_Launch(next_pos, _stats.JUMP_HEIGHT / 3, 0.25, false);
+		_Launch(next_pos, _stats.JUMP_HEIGHT, 0, false);
 		_Flip_Sprite(1);
 
 

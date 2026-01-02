@@ -23,8 +23,8 @@ const Paths:Array[String] = [
 
 @export var NAME:MONS;
 @export var HP:int = 20;
-@export var ATK_1:int;
-@export var ATK_2:int;
+@export var ATK_1:int = 1;
+@export var ATK_2:int = 1;
 @export var RANGE_1:float = 10;
 @export var KNOCKBACK_1:float;
 @export var KNOCKBACK_2:float;
