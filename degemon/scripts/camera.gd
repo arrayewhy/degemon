@@ -15,27 +15,24 @@ func _ready() -> void:
 
 	set_process(false);
 	
-	await get_tree().process_frame;
-	$"../../../World_SVPC/SubViewport/Environment".Shake.connect(_Shake);
-	$"../../../P1_SVPC/SubViewport".get_child(0).Launch_Landed.connect(_SIGNAL_Launch_Landed);
-	$"../../../P2_SVPC/SubViewport".get_child(0).Launch_Landed.connect(_SIGNAL_Launch_Landed);
-	#if get_tree().current_scene.name == "Split":
-		#$"../../../World_SVPC/SubViewport/Environment".Shake.connect(_Shake);
-		#$"../../../P1_SVPC/SubViewport".get_child(0).Launch_Landed.connect(_SIGNAL_Launch_Landed);
-		#$"../../../P2_SVPC/SubViewport".get_child(0).Launch_Landed.connect(_SIGNAL_Launch_Landed);
-	#else:
-		#$"../Environment".Shake.connect(_Shake);
-		#
-		#for player in $"../Player_Holder".get_children():
-			#player.Launch_Landed.connect(_SIGNAL_Launch_Landed);
+	$"../Environment".Shake.connect(_Shake);
 	
-	$"../../../../Initialiser".Battle_Start.connect(_SIGNAL_Battle_Start);
+	# Player creation is deferred because the base node of this scene is busy and cannot add new children yet.
+	# Thus, we must defer connecting to player signals as well.
+	call_deferred("_Connect_Player_Launch_Landed");
+	
+	$"../Initialiser".Battle_Start.connect(_SIGNAL_Battle_Start);
 	
 	for player in World.PLAYERS.values():
 		player.Death.connect(_SIGNAL_Player_Death);
 
 
 # Functions ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+func _Connect_Player_Launch_Landed() -> void:
+	for player in $"../Player_Holder".get_children():
+		player.Launch_Landed.connect(_SIGNAL_Launch_Landed);
 
 
 func _Shake(power:float) -> void:
@@ -77,22 +74,22 @@ func _process(delta: float) -> void:
 	#var targ_pos:Vector2 = self.position + raw_dir_to_player * _speed * delta;
 	self.position += raw_dir * _speed * delta;
 	
-	#if players[0].position.distance_to(players[1].position) > 96:
-		#
-		#if _zoom_tween && _zoom_tween.is_running():
-			#_zoom_tween.stop();
-		#_zoom_tween = create_tween();
-		#_zoom_tween.tween_property(self, "zoom", Vector2.ONE, .125);
-		#
-		##zoom = Vector2.ONE;
-	#else:
-		#
-		#if _zoom_tween && _zoom_tween.is_running():
-			#_zoom_tween.stop();
-		#_zoom_tween = create_tween();
-		#_zoom_tween.tween_property(self, "zoom", Vector2.ONE * 2, .125);
-		#
-		##zoom = Vector2.ONE * 2;
+	if players[0].position.distance_to(players[1].position) > 96:
+		
+		if _zoom_tween && _zoom_tween.is_running():
+			_zoom_tween.stop();
+		_zoom_tween = create_tween();
+		_zoom_tween.tween_property(self, "zoom", Vector2.ONE, .125);
+		
+		#zoom = Vector2.ONE;
+	else:
+		
+		if _zoom_tween && _zoom_tween.is_running():
+			_zoom_tween.stop();
+		_zoom_tween = create_tween();
+		_zoom_tween.tween_property(self, "zoom", Vector2.ONE * 2, .125);
+		
+		#zoom = Vector2.ONE * 2;
 	
 	# Camera Shake
 	

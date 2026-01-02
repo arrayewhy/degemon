@@ -19,15 +19,6 @@ func _Initialise() -> void:
 	_spark_holder.name = "Spark_Holder";
 	self.add_child(_spark_holder);
 
-	await get_tree().process_frame;
-	
-	if get_tree().current_scene.name == "Split":
-		#Node2D.new().texture_filter = 
-		self.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST;
-		_shadow_holder.reparent($"../Split/Split_Screen/World_SVPC/SubViewport");
-		_spark_holder.reparent($"../Split/Split_Screen/World_SVPC/SubViewport");
-		#self.reparent($"../Split/Split_Screen/World_SVPC/SubViewport");
-
 
 # Sparks ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 

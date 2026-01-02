@@ -574,6 +574,7 @@ grow_vertical = 2
 texture = ExtResource("8_jy6vs")
 
 [node name="Split_Screen" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("7_h861m")
 
 [node name="World_SVPC" type="SubViewportContainer" parent="Split_Screen"]
@@ -586,597 +587,7 @@ grow_vertical = 2
 [node name="SubViewport" type="SubViewport" parent="Split_Screen/World_SVPC"]
 handle_input_locally = false
 size = Vector2i(480, 270)
-render_target_update_mode = 4
-
-[node name="Action_Cam" type="Camera2D" parent="Split_Screen/World_SVPC/SubViewport"]
-zoom = Vector2(2, 2)
-script = ExtResource("2_r6hvi")
-
-[node name="Environment" type="Node2D" parent="Split_Screen/World_SVPC/SubViewport"]
-z_index = -10
-y_sort_enabled = true
-texture_filter = 1
-script = ExtResource("3_cd6ng")
-
-[node name="Cell_1" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, 0)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_58" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-32, 0)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_2" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_3" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, 0)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_62" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(32, 0)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_70" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, 16)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_74" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-32, 16)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_76" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, 16)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_78" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, 16)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_82" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(32, 16)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_4" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -16)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_64" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-32, -16)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_5" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -16)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_6" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -16)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_66" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(32, -16)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_7" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -32)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_8" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -32)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_9" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -32)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_10" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -48)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_11" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -48)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_12" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -48)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_13" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -64)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_14" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -64)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_15" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -64)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_16" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -80)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_17" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -80)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_18" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -80)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_19" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -96)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_20" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -96)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_21" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -96)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_22" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -128)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_23" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -128)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_24" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -128)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_25" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -144)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_26" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -144)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_27" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -144)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_28" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -176)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_29" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -176)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_30" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -176)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_31" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -192)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_32" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -192)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_33" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -192)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_34" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -208)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_35" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -208)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_36" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -208)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_37" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-32, -240)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_38" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -240)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_39" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -240)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_40" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-32, -256)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_41" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -256)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_42" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -256)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_43" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -288)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_44" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -288)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_45" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -288)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_46" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -304)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_47" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -304)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_48" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -304)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_49" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -320)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_50" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -320)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_51" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -320)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_92" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -448)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_93" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -448)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_94" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -448)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_95" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -432)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_96" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -432)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_97" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -432)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_98" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -416)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_99" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -416)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_100" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -416)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_101" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -400)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_102" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -400)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_103" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -400)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_52" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -352)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_53" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -352)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_54" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(32, -352)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_55" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -368)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_56" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -368)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_57" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(32, -368)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_59" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -464)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_60" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -464)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_61" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -464)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_63" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-32, -480)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_65" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -480)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_67" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(32, -480)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_68" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-32, -496)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_69" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -496)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_71" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -496)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_72" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(32, -496)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_73" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-32, -512)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_75" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -512)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_77" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(32, -512)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_79" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(-16, -528)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_80" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(0, -528)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Cell_81" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Environment"]
-position = Vector2(16, -528)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
-
-[node name="Static_Environment" type="Node2D" parent="Split_Screen/World_SVPC/SubViewport"]
-texture_filter = 1
-
-[node name="Gem" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Static_Environment"]
-z_index = 1
-position = Vector2(0, -504)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(64, 32, 16, 16)
-script = ExtResource("9_hs220")
-
-[node name="Cell_70" type="Sprite2D" parent="Split_Screen/World_SVPC/SubViewport/Static_Environment"]
-position = Vector2(0, -496)
-texture = ExtResource("4_h861m")
-region_enabled = true
-region_rect = Rect2(80, 32, 16, 16)
+render_target_update_mode = 0
 
 [node name="P1_SVPC" type="SubViewportContainer" parent="Split_Screen"]
 anchors_preset = 9
@@ -1189,7 +600,7 @@ handle_input_locally = false
 size = Vector2i(256, 512)
 size_2d_override = Vector2i(512, 1024)
 size_2d_override_stretch = true
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="P2_SVPC" type="SubViewportContainer" parent="Split_Screen"]
 anchors_preset = 11
@@ -1205,4 +616,594 @@ handle_input_locally = false
 size = Vector2i(256, 512)
 size_2d_override = Vector2i(512, 1024)
 size_2d_override_stretch = true
-render_target_update_mode = 4
+render_target_update_mode = 0
+
+[node name="Action_Cam" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+script = ExtResource("2_r6hvi")
+
+[node name="Environment" type="Node2D" parent="."]
+z_index = -10
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("3_cd6ng")
+
+[node name="Cell_1" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, 0)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_58" type="Sprite2D" parent="Environment"]
+position = Vector2(-32, 0)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_2" type="Sprite2D" parent="Environment"]
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_3" type="Sprite2D" parent="Environment"]
+position = Vector2(16, 0)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_62" type="Sprite2D" parent="Environment"]
+position = Vector2(32, 0)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_70" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, 16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_74" type="Sprite2D" parent="Environment"]
+position = Vector2(-32, 16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_76" type="Sprite2D" parent="Environment"]
+position = Vector2(0, 16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_78" type="Sprite2D" parent="Environment"]
+position = Vector2(16, 16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_82" type="Sprite2D" parent="Environment"]
+position = Vector2(32, 16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_4" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_64" type="Sprite2D" parent="Environment"]
+position = Vector2(-32, -16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_5" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_6" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_66" type="Sprite2D" parent="Environment"]
+position = Vector2(32, -16)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_7" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -32)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_8" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -32)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_9" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -32)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_10" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -48)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_11" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -48)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_12" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -48)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_13" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -64)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_14" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -64)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_15" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -64)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_16" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -80)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_17" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -80)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_18" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -80)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_19" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -96)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_20" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -96)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_21" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -96)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_22" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -128)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_23" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -128)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_24" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -128)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_25" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -144)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_26" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -144)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_27" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -144)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_28" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -176)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_29" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -176)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_30" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -176)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_31" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -192)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_32" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -192)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_33" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -192)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_34" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -208)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_35" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -208)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_36" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -208)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_37" type="Sprite2D" parent="Environment"]
+position = Vector2(-32, -240)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_38" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -240)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_39" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -240)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_40" type="Sprite2D" parent="Environment"]
+position = Vector2(-32, -256)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_41" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -256)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_42" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -256)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_43" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -288)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_44" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -288)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_45" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -288)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_46" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -304)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_47" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -304)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_48" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -304)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_49" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -320)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_50" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -320)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_51" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -320)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_92" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -448)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_93" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -448)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_94" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -448)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_95" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -432)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_96" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -432)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_97" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -432)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_98" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -416)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_99" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -416)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_100" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -416)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_101" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -400)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_102" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -400)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_103" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -400)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_52" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -352)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_53" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -352)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_54" type="Sprite2D" parent="Environment"]
+position = Vector2(32, -352)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_55" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -368)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_56" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -368)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_57" type="Sprite2D" parent="Environment"]
+position = Vector2(32, -368)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_59" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -464)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_60" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -464)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_61" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -464)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_63" type="Sprite2D" parent="Environment"]
+position = Vector2(-32, -480)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_65" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -480)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_67" type="Sprite2D" parent="Environment"]
+position = Vector2(32, -480)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_68" type="Sprite2D" parent="Environment"]
+position = Vector2(-32, -496)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_69" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -496)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_71" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -496)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_72" type="Sprite2D" parent="Environment"]
+position = Vector2(32, -496)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_73" type="Sprite2D" parent="Environment"]
+position = Vector2(-32, -512)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_75" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -512)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_77" type="Sprite2D" parent="Environment"]
+position = Vector2(32, -512)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_79" type="Sprite2D" parent="Environment"]
+position = Vector2(-16, -528)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_80" type="Sprite2D" parent="Environment"]
+position = Vector2(0, -528)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Cell_81" type="Sprite2D" parent="Environment"]
+position = Vector2(16, -528)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="Static_Environment" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="Gem" type="Sprite2D" parent="Static_Environment"]
+z_index = 1
+position = Vector2(0, -504)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(64, 32, 16, 16)
+script = ExtResource("9_hs220")
+
+[node name="Cell_70" type="Sprite2D" parent="Static_Environment"]
+position = Vector2(0, -496)
+texture = ExtResource("4_h861m")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)

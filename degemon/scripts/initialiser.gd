@@ -8,6 +8,7 @@ signal Battle_Start;
 
 func _ready() -> void:
 	World.Set_Current_Level(get_tree().current_scene.name);
+	# Defer Creating Players because parent is busy and cannot add children yet
 	call_deferred("_Create_Players");
 
 
@@ -24,7 +25,7 @@ func _Create_Players() -> void:
 	
 	var player_count:int = 2;
 	var player_holder:Node2D = Node2D.new();
-	player_holder.name = "Player_Holder"
+	player_holder.name = "Player_Holder";
 	player_holder.y_sort_enabled = true;
 	player_holder.hide();
 	get_parent().add_child(player_holder);
@@ -35,13 +36,8 @@ func _Create_Players() -> void:
 		var player:Node2D = _player_prefab.instantiate();
 		player.Initialise(i, World.ACTIVE_MONS[i], Battle_Start);
 		
-		var cam:Camera2D = Camera2D.new();
-		cam.zoom = Vector2(4, 4);
-		player.add_child(cam);
-		
-		match i:
-			0: $"../Split_Screen/P1_SVPC/SubViewport".add_child(player);
-			1: $"../Split_Screen/P2_SVPC/SubViewport".add_child(player);
+		player_holder.add_child(player);
+		player.name = str("P", i + 1);
 		
 		init_y[i] = player.position.y;
 		player.position = _spawn_point_holder.get_child(i).global_position + Vector2.UP * 256;
@@ -50,10 +46,8 @@ func _Create_Players() -> void:
 	tween = create_tween();
 	tween.set_parallel(true);
 	
-	tween.tween_property($"../Split_Screen/P1_SVPC/SubViewport".get_child(0), \
-	"global_position:y", init_y[0], .5 + randf_range(.1, .5));
-	tween.tween_property($"../Split_Screen/P2_SVPC/SubViewport".get_child(0), \
-	"global_position:y", init_y[1], .5 + randf_range(.1, .5));
+	tween.tween_property($"../Player_Holder/P1", "global_position:y", init_y[0], .5 + randf_range(.1, .5));
+	tween.tween_property($"../Player_Holder/P2", "global_position:y", init_y[1], .5 + randf_range(.1, .5));
 	
 	player_holder.show();
 	

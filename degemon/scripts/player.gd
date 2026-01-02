@@ -35,7 +35,7 @@ var _hurt:bool;
 
 var _other_players:Array[Node2D];
 
-@onready var _environment:Node2D = $"../../../World_SVPC/SubViewport/Environment";
+@onready var _environment:Node2D = $"../../Environment";
 
 signal Submit_Button(state:bool);
 signal Launch_Landed(launch_pos:Vector2, landing_pos:Vector2, power:float, dmg:int, knockback:float, atk_range:float);
@@ -76,7 +76,7 @@ func _ready() -> void:
 	
 	$Launcher.Launch.connect(_SIGNAL_Launch_Triggered);
 	
-	$"../../../World_SVPC/SubViewport/Environment".Fall_Check.connect(_SIGNAL_Fall_Check);
+	$"../../Environment".Fall_Check.connect(_SIGNAL_Fall_Check);
 	
 	await get_tree().process_frame;
 	
@@ -89,8 +89,8 @@ func _ready() -> void:
 	# Health Bar
 	
 	match _player_num:
-		0: _hp_bar = $"../../../../Battle_UI/P1_HP/Bar";
-		1: _hp_bar = $"../../../../Battle_UI/P2_HP/Bar";
+		0: _hp_bar = $"../../Battle_UI/P1_HP/Bar";
+		1: _hp_bar = $"../../Battle_UI/P2_HP/Bar";
 		
 	_hp_bar_width = _hp_bar.size.x;
 
