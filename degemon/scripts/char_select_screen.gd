@@ -19,7 +19,7 @@ func _Attempt_Battle_Start() -> void:
 	if _chars_selected >= 2:
 		Music_Master.Play_Normal_Battle_Music();
 		await get_tree().create_timer(3).timeout;
-		get_tree().change_scene_to_file("res://scenes/split.tscn");
+		get_tree().change_scene_to_file(World.LEVELS["Rocks"]);
 
 
 func _On_Game_Start() -> void:

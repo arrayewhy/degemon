@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://8w6h81euwj7g"]
+[gd_scene load_steps=9 format=3 uid="uid://ddl33tr3nr8g1"]
 
-[ext_resource type="Script" uid="uid://cpjlo81jud0mo" path="res://scripts/initialiser.gd" id="1_dxsw2"]
-[ext_resource type="Script" uid="uid://eltewjrq8dkm" path="res://scripts/camera.gd" id="2_pag8q"]
-[ext_resource type="Texture2D" uid="uid://busi0mq2qklss" path="res://sprites/Wall.png" id="3_iyx6j"]
-[ext_resource type="Texture2D" uid="uid://dgatrvsa82lbt" path="res://sprites/Pixel.png" id="4_eyxf2"]
-[ext_resource type="Script" uid="uid://bl1fatr6yn0eu" path="res://scripts/environment.gd" id="5_lx7b0"]
-[ext_resource type="Texture2D" uid="uid://s1btu3fwm1ft" path="res://sprites/main_spritesheet.png" id="6_gniww"]
-[ext_resource type="Texture2D" uid="uid://cjcfqoalfdm7n" path="res://sprites/Frame.png" id="7_1rqac"]
-[ext_resource type="Script" uid="uid://bd3c3uubudbcn" path="res://scripts/split.gd" id="7_pag8q"]
+[ext_resource type="Script" uid="uid://cpjlo81jud0mo" path="res://scripts/initialiser.gd" id="1_okdkg"]
+[ext_resource type="Texture2D" uid="uid://busi0mq2qklss" path="res://sprites/Wall.png" id="2_w2d40"]
+[ext_resource type="Texture2D" uid="uid://dgatrvsa82lbt" path="res://sprites/Pixel.png" id="3_r8cfw"]
+[ext_resource type="Texture2D" uid="uid://cjcfqoalfdm7n" path="res://sprites/Frame.png" id="4_xo5vt"]
+[ext_resource type="Script" uid="uid://bl1fatr6yn0eu" path="res://scripts/environment.gd" id="6_l57tl"]
+[ext_resource type="Texture2D" uid="uid://s1btu3fwm1ft" path="res://sprites/main_spritesheet.png" id="7_lyl1w"]
+[ext_resource type="Script" uid="uid://eltewjrq8dkm" path="res://scripts/camera.gd" id="8_g8d55"]
 
 [sub_resource type="GDScript" id="GDScript_dxsw2"]
 resource_name = "Battle_UI"
@@ -21,7 +20,7 @@ func _ready() -> void:
 [node name="Rocks" type="Node2D"]
 
 [node name="Initialiser" type="Node" parent="."]
-script = ExtResource("1_dxsw2")
+script = ExtResource("1_okdkg")
 
 [node name="Spawn_Points" type="Node2D" parent="."]
 
@@ -38,7 +37,7 @@ z_index = -1
 [node name="Sprite2D" type="Sprite2D" parent="Walls"]
 texture_repeat = 2
 position = Vector2(-136, 0)
-texture = ExtResource("3_iyx6j")
+texture = ExtResource("2_w2d40")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 144)
 
@@ -46,7 +45,7 @@ region_rect = Rect2(0, 0, 16, 144)
 texture_repeat = 2
 position = Vector2(0, 72)
 rotation = -1.5707964
-texture = ExtResource("3_iyx6j")
+texture = ExtResource("2_w2d40")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 288)
 
@@ -54,7 +53,7 @@ region_rect = Rect2(0, 0, 16, 288)
 texture_repeat = 2
 position = Vector2(136, 0)
 rotation = -3.1415925
-texture = ExtResource("3_iyx6j")
+texture = ExtResource("2_w2d40")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 144)
 
@@ -62,7 +61,7 @@ region_rect = Rect2(0, 0, 16, 144)
 texture_repeat = 2
 position = Vector2(0, -72)
 rotation = 1.5707964
-texture = ExtResource("3_iyx6j")
+texture = ExtResource("2_w2d40")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 288)
 
@@ -70,7 +69,7 @@ region_rect = Rect2(0, 0, 16, 288)
 modulate = Color(0.8784314, 0.78431374, 0.5647059, 1)
 z_index = -10
 scale = Vector2(280, 150)
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Battle_UI" type="CanvasLayer" parent="."]
 layer = 2
@@ -99,7 +98,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
-texture = ExtResource("7_1rqac")
+texture = ExtResource("4_xo5vt")
 region_rect = Rect2(0, 0, 16, 16)
 patch_margin_left = 7
 patch_margin_top = 7
@@ -126,7 +125,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_1rqac")
+texture = ExtResource("4_xo5vt")
 region_rect = Rect2(0, 0, 16, 16)
 patch_margin_left = 7
 patch_margin_top = 7
@@ -146,7 +145,7 @@ offset_top = -1.335144e-05
 offset_bottom = -1.1444092e-05
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_1/HP"]
 visible = false
@@ -159,7 +158,7 @@ anchor_right = 0.915
 anchor_bottom = 0.57
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar2" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_1/HP/Bar"]
 self_modulate = Color(1, 0.76862746, 0.76862746, 1)
@@ -169,7 +168,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Mood" type="Control" parent="Battle_UI/Control/Bottom_Panel/P_1"]
 layout_mode = 1
@@ -184,7 +183,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_1rqac")
+texture = ExtResource("4_xo5vt")
 region_rect = Rect2(0, 0, 16, 16)
 patch_margin_left = 7
 patch_margin_top = 7
@@ -204,7 +203,7 @@ offset_top = 3.8146973e-05
 offset_bottom = 3.8146973e-05
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_1/Mood"]
 visible = false
@@ -217,7 +216,7 @@ anchor_right = 0.915
 anchor_bottom = 0.57
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar2" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_1/Mood/Bar"]
 self_modulate = Color(0.70980394, 0.8509804, 0.9372549, 1)
@@ -227,7 +226,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="P_2" type="Control" parent="Battle_UI/Control/Bottom_Panel"]
 visible = false
@@ -250,7 +249,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_1rqac")
+texture = ExtResource("4_xo5vt")
 region_rect = Rect2(0, 0, 16, 16)
 patch_margin_left = 7
 patch_margin_top = 7
@@ -272,7 +271,7 @@ offset_right = 6.1035156e-05
 offset_bottom = 3.8146973e-05
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_2/HP"]
 visible = false
@@ -285,7 +284,7 @@ anchor_right = 0.915
 anchor_bottom = 0.57
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar2" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_2/HP/Bar"]
 self_modulate = Color(1, 0.76862746, 0.76862746, 1)
@@ -295,7 +294,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Mood" type="Control" parent="Battle_UI/Control/Bottom_Panel/P_2"]
 layout_mode = 1
@@ -310,7 +309,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_1rqac")
+texture = ExtResource("4_xo5vt")
 region_rect = Rect2(0, 0, 16, 16)
 patch_margin_left = 7
 patch_margin_top = 7
@@ -332,7 +331,7 @@ offset_right = 6.1035156e-05
 offset_bottom = 3.8146973e-05
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_2/Mood"]
 visible = false
@@ -345,7 +344,7 @@ anchor_right = 0.915
 anchor_bottom = 0.57
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar2" type="TextureRect" parent="Battle_UI/Control/Bottom_Panel/P_2/Mood/Bar"]
 self_modulate = Color(0.70980394, 0.8509804, 0.9372549, 1)
@@ -355,7 +354,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="P1_HP" type="NinePatchRect" parent="Battle_UI"]
 anchors_preset = 2
@@ -367,7 +366,7 @@ offset_right = 104.0
 offset_bottom = -44.0
 grow_vertical = 0
 scale = Vector2(2, 2)
-texture = ExtResource("7_1rqac")
+texture = ExtResource("4_xo5vt")
 patch_margin_left = 7
 patch_margin_top = 7
 patch_margin_right = 7
@@ -380,7 +379,7 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 89.0
 offset_bottom = 10.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar" type="TextureRect" parent="Battle_UI/P1_HP"]
 self_modulate = Color(0.89411765, 0.42352942, 0.5803922, 1)
@@ -389,14 +388,14 @@ offset_left = 8.0
 offset_top = 6.0
 offset_right = 89.0
 offset_bottom = 9.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bright" type="TextureRect" parent="Battle_UI/P1_HP/Bar"]
 self_modulate = Color(1, 0.76862746, 0.76862746, 1)
 layout_mode = 0
 offset_right = 81.0
 offset_bottom = 1.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="P1_Mood" type="NinePatchRect" parent="Battle_UI"]
 anchors_preset = 2
@@ -408,7 +407,7 @@ offset_right = 104.0
 offset_bottom = -24.0
 grow_vertical = 0
 scale = Vector2(2, 2)
-texture = ExtResource("7_1rqac")
+texture = ExtResource("4_xo5vt")
 patch_margin_left = 7
 patch_margin_top = 7
 patch_margin_right = 7
@@ -421,7 +420,7 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 89.0
 offset_bottom = 10.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar" type="TextureRect" parent="Battle_UI/P1_Mood"]
 self_modulate = Color(0.24313726, 0.7137255, 0.9411765, 1)
@@ -430,14 +429,14 @@ offset_left = 8.0
 offset_top = 6.0
 offset_right = 89.0
 offset_bottom = 9.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bright" type="TextureRect" parent="Battle_UI/P1_Mood/Bar"]
 self_modulate = Color(0.70980394, 0.8509804, 0.9372549, 1)
 layout_mode = 0
 offset_right = 81.0
 offset_bottom = 1.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Clock" type="NinePatchRect" parent="Battle_UI"]
 anchors_preset = 7
@@ -451,7 +450,7 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("7_1rqac")
+texture = ExtResource("4_xo5vt")
 patch_margin_left = 7
 patch_margin_top = 7
 patch_margin_right = 7
@@ -470,7 +469,7 @@ offset_bottom = -44.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
-texture = ExtResource("7_1rqac")
+texture = ExtResource("4_xo5vt")
 patch_margin_left = 7
 patch_margin_top = 7
 patch_margin_right = 7
@@ -483,7 +482,7 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 89.0
 offset_bottom = 10.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar" type="TextureRect" parent="Battle_UI/P2_HP"]
 self_modulate = Color(0.89411765, 0.42352942, 0.5803922, 1)
@@ -492,14 +491,14 @@ offset_left = 8.0
 offset_top = 6.0
 offset_right = 89.0
 offset_bottom = 9.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bright" type="TextureRect" parent="Battle_UI/P2_HP/Bar"]
 self_modulate = Color(1, 0.76862746, 0.76862746, 1)
 layout_mode = 0
 offset_right = 81.0
 offset_bottom = 1.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="P2_Mood" type="NinePatchRect" parent="Battle_UI"]
 anchors_preset = 3
@@ -514,7 +513,7 @@ offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
-texture = ExtResource("7_1rqac")
+texture = ExtResource("4_xo5vt")
 patch_margin_left = 7
 patch_margin_top = 7
 patch_margin_right = 7
@@ -527,7 +526,7 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 89.0
 offset_bottom = 10.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bar" type="TextureRect" parent="Battle_UI/P2_Mood"]
 self_modulate = Color(0.24313726, 0.7137255, 0.9411765, 1)
@@ -536,551 +535,506 @@ offset_left = 8.0
 offset_top = 6.0
 offset_right = 89.0
 offset_bottom = 9.0
-texture = ExtResource("4_eyxf2")
+texture = ExtResource("3_r8cfw")
 
 [node name="Bright" type="TextureRect" parent="Battle_UI/P2_Mood/Bar"]
 self_modulate = Color(0.70980394, 0.8509804, 0.9372549, 1)
 layout_mode = 0
 offset_right = 81.0
 offset_bottom = 1.0
-texture = ExtResource("4_eyxf2")
-
-[node name="Split_Screen" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("7_pag8q")
-
-[node name="World_SVPC" type="SubViewportContainer" parent="Split_Screen"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SubViewport" type="SubViewport" parent="Split_Screen/World_SVPC"]
-handle_input_locally = false
-size = Vector2i(480, 270)
-render_target_update_mode = 0
-
-[node name="P1_SVPC" type="SubViewportContainer" parent="Split_Screen"]
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 256.0
-grow_vertical = 2
-
-[node name="SubViewport" type="SubViewport" parent="Split_Screen/P1_SVPC"]
-handle_input_locally = false
-size = Vector2i(256, 512)
-size_2d_override = Vector2i(512, 1024)
-size_2d_override_stretch = true
-render_target_update_mode = 0
-
-[node name="P2_SVPC" type="SubViewportContainer" parent="Split_Screen"]
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -256.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="SubViewport" type="SubViewport" parent="Split_Screen/P2_SVPC"]
-handle_input_locally = false
-size = Vector2i(256, 512)
-size_2d_override = Vector2i(512, 1024)
-size_2d_override_stretch = true
-render_target_update_mode = 0
+texture = ExtResource("3_r8cfw")
 
 [node name="Environment" type="Node2D" parent="."]
 z_index = -10
 y_sort_enabled = true
 texture_filter = 1
-script = ExtResource("5_lx7b0")
+script = ExtResource("6_l57tl")
 
 [node name="Cell_13" type="Sprite2D" parent="Environment"]
 position = Vector2(-64, -64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_14" type="Sprite2D" parent="Environment"]
 position = Vector2(-48, -64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_15" type="Sprite2D" parent="Environment"]
 position = Vector2(-32, -64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_16" type="Sprite2D" parent="Environment"]
 position = Vector2(-16, -64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_17" type="Sprite2D" parent="Environment"]
 position = Vector2(0, -64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_18" type="Sprite2D" parent="Environment"]
 position = Vector2(16, -64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_19" type="Sprite2D" parent="Environment"]
 position = Vector2(32, -64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_20" type="Sprite2D" parent="Environment"]
 position = Vector2(48, -64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_21" type="Sprite2D" parent="Environment"]
 position = Vector2(64, -64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_24" type="Sprite2D" parent="Environment"]
 position = Vector2(-64, -48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_25" type="Sprite2D" parent="Environment"]
 position = Vector2(-48, -48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_26" type="Sprite2D" parent="Environment"]
 position = Vector2(-32, -48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_27" type="Sprite2D" parent="Environment"]
 position = Vector2(-16, -48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_28" type="Sprite2D" parent="Environment"]
 position = Vector2(0, -48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_29" type="Sprite2D" parent="Environment"]
 position = Vector2(16, -48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_30" type="Sprite2D" parent="Environment"]
 position = Vector2(32, -48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_31" type="Sprite2D" parent="Environment"]
 position = Vector2(48, -48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_32" type="Sprite2D" parent="Environment"]
 position = Vector2(64, -48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_35" type="Sprite2D" parent="Environment"]
 position = Vector2(-64, -32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_36" type="Sprite2D" parent="Environment"]
 position = Vector2(-48, -32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_37" type="Sprite2D" parent="Environment"]
 position = Vector2(-32, -32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_38" type="Sprite2D" parent="Environment"]
 position = Vector2(-16, -32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_39" type="Sprite2D" parent="Environment"]
 position = Vector2(0, -32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_40" type="Sprite2D" parent="Environment"]
 position = Vector2(16, -32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_41" type="Sprite2D" parent="Environment"]
 position = Vector2(32, -32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_42" type="Sprite2D" parent="Environment"]
 position = Vector2(48, -32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_43" type="Sprite2D" parent="Environment"]
 position = Vector2(64, -32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_46" type="Sprite2D" parent="Environment"]
 position = Vector2(-64, -16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_47" type="Sprite2D" parent="Environment"]
 position = Vector2(-48, -16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_48" type="Sprite2D" parent="Environment"]
 position = Vector2(-32, -16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_49" type="Sprite2D" parent="Environment"]
 position = Vector2(-16, -16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_50" type="Sprite2D" parent="Environment"]
 position = Vector2(0, -16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_51" type="Sprite2D" parent="Environment"]
 position = Vector2(16, -16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_52" type="Sprite2D" parent="Environment"]
 position = Vector2(32, -16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_53" type="Sprite2D" parent="Environment"]
 position = Vector2(48, -16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_54" type="Sprite2D" parent="Environment"]
 position = Vector2(64, -16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_57" type="Sprite2D" parent="Environment"]
 position = Vector2(-64, 0)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_58" type="Sprite2D" parent="Environment"]
 position = Vector2(-48, 0)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_59" type="Sprite2D" parent="Environment"]
 position = Vector2(-32, 0)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_60" type="Sprite2D" parent="Environment"]
 position = Vector2(-16, 0)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_61" type="Sprite2D" parent="Environment"]
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_62" type="Sprite2D" parent="Environment"]
 position = Vector2(16, 0)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_63" type="Sprite2D" parent="Environment"]
 position = Vector2(32, 0)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_64" type="Sprite2D" parent="Environment"]
 position = Vector2(48, 0)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_65" type="Sprite2D" parent="Environment"]
 position = Vector2(64, 0)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_68" type="Sprite2D" parent="Environment"]
 position = Vector2(-64, 16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_69" type="Sprite2D" parent="Environment"]
 position = Vector2(-48, 16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_70" type="Sprite2D" parent="Environment"]
 position = Vector2(-32, 16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_71" type="Sprite2D" parent="Environment"]
 position = Vector2(-16, 16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_72" type="Sprite2D" parent="Environment"]
 position = Vector2(0, 16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_73" type="Sprite2D" parent="Environment"]
 position = Vector2(16, 16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_74" type="Sprite2D" parent="Environment"]
 position = Vector2(32, 16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_75" type="Sprite2D" parent="Environment"]
 position = Vector2(48, 16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_76" type="Sprite2D" parent="Environment"]
 position = Vector2(64, 16)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_79" type="Sprite2D" parent="Environment"]
 position = Vector2(-64, 32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_80" type="Sprite2D" parent="Environment"]
 position = Vector2(-48, 32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_81" type="Sprite2D" parent="Environment"]
 position = Vector2(-32, 32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_82" type="Sprite2D" parent="Environment"]
 position = Vector2(-16, 32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_83" type="Sprite2D" parent="Environment"]
 position = Vector2(0, 32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_84" type="Sprite2D" parent="Environment"]
 position = Vector2(16, 32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_85" type="Sprite2D" parent="Environment"]
 position = Vector2(32, 32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_86" type="Sprite2D" parent="Environment"]
 position = Vector2(48, 32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_87" type="Sprite2D" parent="Environment"]
 position = Vector2(64, 32)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_90" type="Sprite2D" parent="Environment"]
 position = Vector2(-64, 48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_91" type="Sprite2D" parent="Environment"]
 position = Vector2(-48, 48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_92" type="Sprite2D" parent="Environment"]
 position = Vector2(-32, 48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_93" type="Sprite2D" parent="Environment"]
 position = Vector2(-16, 48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_94" type="Sprite2D" parent="Environment"]
 position = Vector2(0, 48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_95" type="Sprite2D" parent="Environment"]
 position = Vector2(16, 48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_96" type="Sprite2D" parent="Environment"]
 position = Vector2(32, 48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_97" type="Sprite2D" parent="Environment"]
 position = Vector2(48, 48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_98" type="Sprite2D" parent="Environment"]
 position = Vector2(64, 48)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_101" type="Sprite2D" parent="Environment"]
 position = Vector2(-64, 64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_102" type="Sprite2D" parent="Environment"]
 position = Vector2(-48, 64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_103" type="Sprite2D" parent="Environment"]
 position = Vector2(-32, 64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_104" type="Sprite2D" parent="Environment"]
 position = Vector2(-16, 64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_105" type="Sprite2D" parent="Environment"]
 position = Vector2(0, 64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_106" type="Sprite2D" parent="Environment"]
 position = Vector2(16, 64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_107" type="Sprite2D" parent="Environment"]
 position = Vector2(32, 64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_108" type="Sprite2D" parent="Environment"]
 position = Vector2(48, 64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Cell_109" type="Sprite2D" parent="Environment"]
 position = Vector2(64, 64)
-texture = ExtResource("6_gniww")
+texture = ExtResource("7_lyl1w")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="Action_Cam" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
-script = ExtResource("2_pag8q")
+script = ExtResource("8_g8d55")

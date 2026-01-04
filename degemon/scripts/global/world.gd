@@ -1,8 +1,8 @@
 extends Node
 
-const _levels:Dictionary[String, String] = {
-	"Split" : "res://scenes/split.tscn",
-	"Race" : "res://scenes/race.tscn",
+const LEVELS:Dictionary[String, String] = {
+	"Rocks" : "res://scenes/rocks.tscn",
+	#"Race" : "res://scenes/race.tscn",
 }
 
 var PLAYERS:Dictionary[int, Node2D];
@@ -59,16 +59,16 @@ func Reset_Scene() -> void:
 
 func Reset_Current_Scene() -> void:
 	Reset_Scene();
-	get_tree().change_scene_to_file(_levels[CURR_LEVEL]);
+	get_tree().change_scene_to_file(LEVELS[CURR_LEVEL]);
 
 
 func Load_Next_Scene() -> void:
 	Reset_Scene();
-	for i in _levels.keys().size():
-		if _levels.keys()[i] == CURR_LEVEL:
-			if i < _levels.keys().size() - 1:
-				var next_level_name:String = _levels.keys()[i + 1];
-				get_tree().change_scene_to_file(_levels[next_level_name]);
+	for i in LEVELS.keys().size():
+		if LEVELS.keys()[i] == CURR_LEVEL:
+			if i < LEVELS.keys().size() - 1:
+				var next_level_name:String = LEVELS.keys()[i + 1];
+				get_tree().change_scene_to_file(LEVELS[next_level_name]);
 			else:
-				var next_level_name:String = _levels.keys()[0];
-				get_tree().change_scene_to_file(_levels[next_level_name]);
+				var next_level_name:String = LEVELS.keys()[0];
+				get_tree().change_scene_to_file(LEVELS[next_level_name]);

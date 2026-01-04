@@ -22,17 +22,15 @@ func _ready() -> void:
 	call_deferred("_Connect_Player_Launch_Landed");
 	
 	$"../Initialiser".Battle_Start.connect(_SIGNAL_Battle_Start);
-	
-	for player in World.PLAYERS.values():
-		player.Death.connect(_SIGNAL_Player_Death);
 
 
 # Functions ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
 func _Connect_Player_Launch_Landed() -> void:
-	for player in $"../Player_Holder".get_children():
+	for player in World.PLAYERS.values():
 		player.Launch_Landed.connect(_SIGNAL_Launch_Landed);
+		player.Death.connect(_SIGNAL_Player_Death);
 
 
 func _Shake(power:float) -> void:
