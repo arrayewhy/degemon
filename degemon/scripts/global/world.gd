@@ -2,7 +2,7 @@ extends Node
 
 const LEVELS:Dictionary[String, String] = {
 	"Rocks" : "res://scenes/rocks.tscn",
-	#"Race" : "res://scenes/race.tscn",
+	"Arena" : "res://scenes/arena.tscn",
 }
 
 var PLAYERS:Dictionary[int, Node2D];
@@ -52,9 +52,6 @@ func Set_Current_Level(scene_name:String) -> void:
 func Reset_Scene() -> void:
 	Embellishments.Reset_Shadows();
 	Embellishments.Reset_Sparks();
-	
-	for i in PLAYERS.size():
-		Set_Mon_For_Player(i, 0);
 
 
 func Reset_Current_Scene() -> void:

@@ -88,7 +88,7 @@ func _Cycle_Characters(dir:int) -> void:
 func _Choose() -> void:
 	
 	match _curr_select:
-		"RANDOM": World.Set_Mon_For_Player(_player_num, 0);
+		"RANDOM": World.Set_Mon_For_Player(_player_num, randi_range(1, Mon_Stats.MONS.size() - 1));
 		"SUKAMON": World.Set_Mon_For_Player(_player_num, 1);
 		"DIGITAMAMON": World.Set_Mon_For_Player(_player_num, 2);
 		"SKULLGREYMON": World.Set_Mon_For_Player(_player_num, 3);
