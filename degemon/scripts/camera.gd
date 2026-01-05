@@ -77,7 +77,7 @@ func _process(delta: float) -> void:
 		if _zoom_tween && _zoom_tween.is_running():
 			_zoom_tween.stop();
 		_zoom_tween = create_tween();
-		_zoom_tween.tween_property(self, "zoom", Vector2.ONE, .125);
+		_zoom_tween.tween_property(self, "zoom", Vector2.ONE, .1);
 		
 		#zoom = Vector2.ONE;
 	else:
@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 		if _zoom_tween && _zoom_tween.is_running():
 			_zoom_tween.stop();
 		_zoom_tween = create_tween();
-		_zoom_tween.tween_property(self, "zoom", Vector2.ONE * 2, .125);
+		_zoom_tween.tween_property(self, "zoom", Vector2.ONE * 2, .1);
 		
 		#zoom = Vector2.ONE * 2;
 	
