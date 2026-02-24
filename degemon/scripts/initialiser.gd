@@ -19,6 +19,7 @@ func _input(event: InputEvent) -> void:
 
 func _Create_Players() -> void:
 	
+	# Clear all recorded players
 	for player_obj in World.PLAYERS.values():
 		if player_obj:
 			player_obj.queue_free();
